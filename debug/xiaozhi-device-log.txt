@@ -1,0 +1,176 @@
+--- Using \\.\COM10 instead...
+--- esp-idf-monitor 1.6.2 on \\.\COM10 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+I (97501) SystemInfo: free sram: 49767 minimal sram: 48991
+I (107501) SystemInfo: free sram: 49763 minimal sram: 48991
+I (117501) SystemInfo: free sram: 49751 minimal sram: 48991
+I (118551) Backlight: Set brightness to 75
+I (118551) AudioCodec: Set output volume to 90
+I (121091) AudioCodec: Set output volume to 100
+I (122691) AudioCodec: Set output volume to 100
+I (123271) PowerManager: ADC value: 2343 average: 2342 level: 80
+I (123601) AudioCodec: Set output volume to 100
+I (124971) AudioCodec: Set output volume to 100
+I (127501) SystemInfo: free sram: 49835 minimal sram: 48991
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x568
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xc18
+load:0x403cb700,len:0x2df8
+entry 0x403c8904
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x568
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xc18
+load:0x403cb700,len:0x2df8
+entry 0x403c8904
+I (37) octal_psram: vendor id    : 0x0d (AP)
+I (37) octal_psram: dev id       : 0x02 (generation 3)
+I (37) octal_psram: density      : 0x03 (64 Mbit)
+I (39) octal_psram: good-die     : 0x01 (Pass)
+I (43) octal_psram: Latency      : 0x01 (Fixed)
+I (47) octal_psram: VCC          : 0x01 (3V)
+I (51) octal_psram: SRF          : 0x01 (Fast Refresh)
+I (56) octal_psram: BurstType    : 0x01 (Hybrid Wrap)
+I (61) octal_psram: BurstLen     : 0x01 (32 Byte)
+I (65) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)
+I (70) octal_psram: DriveStrength: 0x00 (1/1)
+I (75) MSPI Timing: PSRAM timing tuning index: 5
+I (79) esp_psram: Found 8MB PSRAM device
+I (82) esp_psram: Speed: 80MHz
+I (85) cpu_start: Multicore app
+I (100) cpu_start: Pro cpu start user code
+I (100) cpu_start: cpu freq: 240000000 Hz
+I (100) app_init: Application information:
+I (100) app_init: Project name:     xiaozhi
+I (104) app_init: App version:      1.7.2
+I (108) app_init: Compile time:     Jun  8 2025 05:09:36
+I (113) app_init: ELF file SHA256:  56b628c0b...
+--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 7b685eed3b443dcdb49bae2be73acfa0387b9764b473e817d07e6cb5c2ac48b1
+I (117) app_init: ESP-IDF:          v5.4.1-dirty
+I (121) efuse_init: Min chip rev:     v0.0
+I (125) efuse_init: Max chip rev:     v0.99
+I (129) efuse_init: Chip rev:         v0.2
+I (133) heap_init: Initializing. RAM available for dynamic allocation:
+I (139) heap_init: At 3FCB0048 len 000396C8 (229 KiB): RAM
+I (144) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM
+I (150) heap_init: At 600FE120 len 00001EB8 (7 KiB): RTCRAM
+I (155) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator
+I (162) spi_flash: detected chip: winbond
+I (165) spi_flash: flash io: qio
+I (169) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (174) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (181) main_task: Started on CPU0
+I (211) esp_psram: Reserving pool of 48K of internal memory for DMA/internal allocations
+I (211) main_task: Calling app_main()
+I (231) BackgroundTask: background_task started
+I (231) Board: UUID=f082a020-b4b9-42aa-9789-23db1bd57552 SKU=xingzhi-cube-1.54tft-wifi
+I (231) gpio: GPIO[0]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+I (241) button: IoT Button Version: 4.1.3
+I (251) gpio: GPIO[40]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0
+I (251) gpio: GPIO[39]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+I (261) gpio: GPIO[38]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
+I (271) PowerSaveTimer: Power save timer enabled
+I (281) gpio: GPIO[8]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
+I (281) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+I (411) Display: Power management not supported
+I (451) LcdDisplay: Turning display on
+I (451) LcdDisplay: Initialize LVGL library
+I (451) LcdDisplay: Initialize LVGL port
+I (451) LVGL: Starting LVGL task
+I (451) LcdDisplay: Adding LCD display
+I (481) Backlight: Set brightness to 75
+I (481) Application: STATE: starting
+I (481) NoAudioCodec: Simplex channels created
+I (481) Application: WiFi board detected, setting opus encoder complexity to 0
+I (481) AudioCodec: Set input enable to true
+I (491) AudioCodec: Set output enable to true
+I (491) AudioCodec: Audio codec started
+I (501) pp: pp rom version: e7ae62f
+I (501) net80211: net80211 rom version: e7ae62f
+I (511) wifi:wifi driver task: 3fcdbae0, prio:23, stack:6144, core=0
+I (511) wifi:wifi firmware version: 79fa3f41ba
+I (511) wifi:wifi certification version: v7.0
+I (521) wifi:config NVS flash: disabled
+I (521) wifi:config nano formatting: enabled
+I (521) wifi:Init data frame dynamic rx buffer num: 8
+I (531) wifi:Init dynamic rx mgmt buffer num: 5
+I (531) wifi:Init management short buffer num: 32
+I (541) wifi:Init dynamic tx buffer num: 32
+I (541) wifi:Init static tx FG buffer num: 2
+I (551) wifi:Init static rx buffer size: 1600
+I (551) wifi:Init static rx buffer num: 6
+I (551) wifi:Init dynamic rx buffer num: 8
+I (561) wifi_init: rx ba win: 6
+I (561) wifi_init: accept mbox: 6
+I (561) wifi_init: tcpip mbox: 32
+I (571) wifi_init: udp mbox: 6
+I (571) wifi_init: tcp mbox: 6
+I (571) wifi_init: tcp tx win: 5760
+I (581) wifi_init: tcp rx win: 5760
+I (581) wifi_init: tcp mss: 1440
+I (581) phy_init: phy_version 700,8582a7fd,Feb 10 2025,20:13:11
+I (621) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)
+I (681) wifi:mode : sta (90:70:69:19:97:90)
+I (681) wifi:enable tsf
+I (1271) PowerManager: ADC value: 2333 average: 2333 level: 78
+I (2271) PowerManager: ADC value: 2335 average: 2334 level: 79
+I (3081) wifi: Found AP: LongKa, BSSID: 64:85:05:b0:99:9e, RSSI: -60, Channel: 1, Authmode: 4
+I (3081) wifi: Found AP: LongKa, BSSID: 24:cf:24:37:db:31, RSSI: -83, Channel: 6, Authmode: 4
+W (3091) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2
+I (3441) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0
+I (3441) wifi:state: init -> auth (0xb0)
+I (3451) PowerManager: ADC value: 2334 average: 2334 level: 79
+I (3451) wifi:state: auth -> assoc (0x0)
+I (3461) wifi:state: assoc -> run (0x10)
+I (3461) wifi:[ADDBA]RX DELBA, reason:39, delete tid:0, initiator:1(originator)
+I (3471) wifi:[ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient)
+I (3491) wifi:connected with LongKa, aid = 18, channel 1, BW20, bssid = 64:85:05:b0:99:9e
+I (3491) wifi:security: WPA2-PSK, phy: bgn, rssi: -61
+I (3491) wifi:pm start, type: 1
+
+I (3491) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (3501) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (3511) wifi:<ba-add>idx:0 (ifx:0, 64:85:05:b0:99:9e), tid:0, ssn:41, winSize:64
+I (3521) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (6731) wifi: Got IP: 192.168.1.181
+I (6731) esp_netif_handlers: sta ip: 192.168.1.181, mask: 255.255.255.0, gw: 192.168.1.1
+I (6731) Application: STATE: activating
+I (6731) Ota: Current version: 1.7.2
+I (6741) EspHttp: Opening HTTP connection to https://api.tenclass.net/xiaozhi/ota/
+I (11361) esp-x509-crt-bundle: Certificate validated
+I (12241) Ota: Current is the latest version
+I (12241) Ota: Running partition: ota_1
+I (12251) MCP: Add tool: self.get_device_status
+I (12251) MCP: Add tool: self.audio_speaker.set_volume
+I (12251) MCP: Add tool: self.screen.set_brightness
+I (12251) MCP: Add tool: self.screen.set_theme
+I (12261) MQTT: Connecting to endpoint mqtt.xiaozhi.me
+I (12491) esp-x509-crt-bundle: Certificate validated
+I (12951) MQTT: Connected to endpoint
+I (12951) MODEL_LOADER: The storage free size is 20544 KB
+I (12951) MODEL_LOADER: The partition size is 960 KB
+I (12961) MODEL_LOADER: Successfully load srmodels
+I (12961) AFE: AFE Version: (1MIC_V250121)
+I (12961) AFE: Input PCM Config: total 1 channels(1 microphone, 0 playback), sample rate:16000
+I (12971) AFE: AFE Pipeline: [input] -> |VAD(WebRTC)| -> [output]
+I (12981) AfeAudioProcessor: Audio communication task started, feed size: 512 fetch size: 512
+I (12991) AfeWakeWord: Model 0: wn9_nihaoxiaozhi_tts
+I (12991) AFE_CONFIG: Set WakeNet Model: wn9_nihaoxiaozhi_tts
+MC Quantized wakenet9: wakenet9l_tts1h8_你好小智_3_0.631_0.635, tigger:v4, mode:0, p:0, (May 16 2025 16:07:41)
+I (13031) AFE: AFE Version: (1MIC_V250121)
+I (13031) AFE: Input PCM Config: total 1 channels(1 microphone, 0 playback), sample rate:16000
+I (13041) AFE: AFE Pipeline: [input] -> |VAD(WebRTC)| -> |WakeNet(wn9_nihaoxiaozhi_tts,)| ->  -> [output]
+I (13051) AfeWakeWord: Audio detection task started, feed size: 512 fetch size: 512
+I (13061) Application: STATE: idle
+I (13071) SystemInfo: free sram: 69055 minimal sram: 66083
+I (13071) Application: Resampling audio from 16000 to 24000
+I (13071) OpusResampler: Resampler configured with input sample rate 16000 and output sample rate 24000
