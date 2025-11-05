@@ -99,7 +99,14 @@ private:
 
     // MCP Tools 初始化
     void InitializeTools() {
-        // 参考 MCP 文档
+        auto& mcp_server = McpServer::GetInstance();
+        // 例1：无参数，控制机器人前进
+        mcp_server.AddTool("self.iot.turn_on_light", "Bật tắt đèn phòng tắm", PropertyList({
+            Property("turn", kPropertyTypeBoolean),
+        }), [this](const PropertyList& properties) -> ReturnValue {
+            ESP_LOGI(TAG, "Turn %d light in the bath room", properties["turn"].value<bool>());
+            return true;
+        });
     }
 
     void InitializeButtons() {
@@ -148,6 +155,7 @@ public:
         InitializeDisplayI2c();
         InitializeSsd1306Display();
         InitializeButtons();
+        InitializeTools();
     }
 
     virtual Led* GetLed() override {
