@@ -30,3 +30,5 @@ CONFIG_LV_USE_SNAPSHOT=y
 
 
 CONFIG_OTA_URL="http://xiaozhi-ota.codecuatui.com/xiaozhi/ota/"
+CONFIG_LANGUAGE_VI_VN=y
+CONFIG_BOARD_TYPE_ESP32S3_DEVKIT=y
