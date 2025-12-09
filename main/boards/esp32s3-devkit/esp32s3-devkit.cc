@@ -22,7 +22,10 @@
 #include "oled_display.h"
 #include "wifi_station.h"
 #include "assets/lang_config.h"
+#include "mcp_utils.h"
 #define TAG ""
+
+std::string exampleJson = "{\"success\":true,\"data\":{\"room\":\"Working room\",\"toolsVersion\":12,\"nodeUUID\":\"lyly-working-room\",\"tools\":[{\"name\":\"smarthome.working-room-switch-01-L1\",\"description\":\"Bật tắt Unused\",\"roomContext\":{\"roomId\":3,\"nodeUUID\":\"lyly-working-room\",\"roomName\":\"Working room\"},\"parameters\":[{\"name\":\"state\",\"type\":\"string\",\"required\":true}]},{\"name\":\"smarthome.working-room-switch-01-L2\",\"description\":\"Bật tắt Đèn tuýp\",\"roomContext\":{\"roomId\":3,\"nodeUUID\":\"lyly-working-room\",\"roomName\":\"Working room\"},\"parameters\":[{\"name\":\"state\",\"type\":\"string\",\"required\":true}]},{\"name\":\"smarthome.working-room-switch-01-L3\",\"description\":\"Bật tắt Quạt\",\"roomContext\":{\"roomId\":3,\"nodeUUID\":\"lyly-working-room\",\"roomName\":\"Working room\"},\"parameters\":[{\"name\":\"state\",\"type\":\"string\",\"required\":true}]},{\"name\":\"smarthome.working-room-switch-01-L4\",\"description\":\"Bật tắt Đèn trần\",\"roomContext\":{\"roomId\":3,\"nodeUUID\":\"lyly-working-room\",\"roomName\":\"Working room\"},\"parameters\":[{\"name\":\"state\",\"type\":\"string\",\"required\":true}]},{\"name\":\"mcp.tool.test\",\"description\":\"execute test tool and checking system status\",\"roomContext\":null,\"parameters\":[]}]},\"message\":null}";
 
 class Esp32s3Devkit : public WifiBoard {
 private:
@@ -97,16 +100,76 @@ private:
         display_ = new OledDisplay(panel_io_, panel_, DISPLAY_WIDTH, DISPLAY_HEIGHT, DISPLAY_MIRROR_X, DISPLAY_MIRROR_Y);
     }
 
+    ReturnValue call_tool_execute(const std::string& name, const PropertyList& args) {
+        try {
+            const auto state = args["state"].value<std::string>();
+            ESP_LOGI(TAG, "Executing tool: %s, state: %s", name.c_str(), state.c_str());
+
+            return std::string("OK: state=" + state);
+        }
+        catch (std::exception& e) {
+            return std::string("Error: ") + e.what();
+        }
+    }
+
+    void registerTools() {
+        cJSON* root = cJSON_Parse(exampleJson.c_str());
+        if (!root) return;
+
+        cJSON* data = cJSON_GetObjectItem(root, "data");
+        if (!data) { cJSON_Delete(root); return; }
+
+        cJSON* tools = cJSON_GetObjectItem(data, "tools");
+        if (!tools || !cJSON_IsArray(tools)) {
+            cJSON_Delete(root);
+            return;
+        }
+
+        cJSON* toolItem = nullptr;
+        auto& mcp_server = McpServer::GetInstance();
+        cJSON_ArrayForEach(toolItem, tools) {
+            cJSON* jName = cJSON_GetObjectItem(toolItem, "name");
+            cJSON* jDesc = cJSON_GetObjectItem(toolItem, "description");
+            cJSON* jParams = cJSON_GetObjectItem(toolItem, "parameters");
+
+            if (!jName || !jDesc || !jParams)
+                continue;
+
+            std::string name = jName->valuestring;
+            std::string desc = jDesc->valuestring;
+
+            PropertyList props = ParseToolParameters(jParams);
+
+            // Create tool
+            McpTool* tool = nullptr;
+            tool = new McpTool(
+                name,
+                desc,
+                props,
+                [name, this](const PropertyList& args) -> ReturnValue {
+                    return call_tool_execute(name, args);
+                }
+            );
+
+            // Add to Server
+            mcp_server.AddTool(tool);
+        }
+
+        cJSON_Delete(root);
+    }
+
+
     // MCP Tools 初始化
     void InitializeTools() {
-        auto& mcp_server = McpServer::GetInstance();
+        /*auto& mcp_server = McpServer::GetInstance();
         // 例1：无参数，控制机器人前进
         mcp_server.AddTool("self.iot.turn_on_light", "Bật tắt đèn phòng tắm", PropertyList({
             Property("turn", kPropertyTypeBoolean),
         }), [this](const PropertyList& properties) -> ReturnValue {
             ESP_LOGI(TAG, "Turn %d light in the bath room", properties["turn"].value<bool>());
             return true;
-        });
+        });*/
+        registerTools();
     }
 
     void InitializeButtons() {
